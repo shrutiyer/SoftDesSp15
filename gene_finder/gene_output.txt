@@ -11,11 +11,11 @@ First string:   1. Chain A, Crystal Structure Of Yscq-C From Yersinia Pseudotube
 		8. Chain C, Hepatitis B Capsid Protein With An N-Terminal Extension Modelled Into 8.9 A Data.
 
 Second string:  1. Chain E, Crystal Structural Of Native Spas C-Terminal Domain
-		2. Chain B, Crystal Structure Of The Cytoplasmic Domain Of Spa40, The Specificity Switch For The Shigella Flexneri Type Iii Secretion System
+	       *2. Chain B, Crystal Structure Of The Cytoplasmic Domain Of Spa40, The Specificity Switch For The Shigella Flexneri Type Iii Secretion System
 		3. Chain A, Crystal Structure Of The Mutated N263d Yscu C-Terminal Domain
 
 Third string:   1. Chain A, Structural And Biochemical Analysis Of A Prototypical Atpase From The Type Iii Secretion System Of Pathogenic Bacteria
-		2. Chain A, Crystal Structure Of Ssan From Salmonella Enterica
+	       *2. Chain A, Crystal Structure Of Ssan From Salmonella Enterica
 		3. Chain A, Crystal Structure Of The Flagellar Type Iii Atpase Flii
 
 Fourth string:  1. Chain A, Crystal Structure Of Apo Dipeptide Epimerase From Thermotoga Maritima
