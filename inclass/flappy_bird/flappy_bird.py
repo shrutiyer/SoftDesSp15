@@ -4,7 +4,7 @@ import pygame
 import random
 import time
 
-class FlappyModel():
+class FlappyModel(object):
     """ Represents the game state of our Flappy bird clone """
     def __init__(self, width, height):
         """ Initialize the flappy model """
@@ -43,7 +43,7 @@ class FlappyModel():
         """ Updates the model and its constituent parts """
         self.bird.update(delta_t)
 
-class DrawableSurface():
+class DrawableSurface(object):
     """ A class that wraps a pygame.Surface and a pygame.Rect """
 
     def __init__(self, surface, rect):
@@ -59,7 +59,7 @@ class DrawableSurface():
         """ Get the rect """
         return self.rect
 
-class Background():
+class Background(object):
     """ Represents the contents of the background """
     def __init__(self, screen_width, screen_height):
         """ initialize the background for Flappy Bird.  The variables
@@ -115,8 +115,8 @@ class Background():
         for d in drawables:
             rectangles.append(d.get_rect())
         return entity.get_rect().collidelist(rectangles) != -1
-
-class Bird():
+                
+class Bird(object):
     """ Represents the player in the game (the Flappy Bird) """
     def __init__(self,pos_x,pos_y):
         """ Initialize a Flappy bird at the specified position
@@ -143,7 +143,7 @@ class Bird():
         """ cause the bird to accelerate upwards (negative y direction) """
         self.v_y -= 100
 
-class PipeObstacle():
+class PipeObstacle(object):
     """ A class that represents a double pipe obstacle """
     def __init__(self, pos_x, screen_height):
         """ Initialize a pip obstacle at the specified x coordinate pos_x """
@@ -192,7 +192,7 @@ class PipeObstacle():
             rectangles.append(d.get_rect())
         return entity.get_rect().collidelist(rectangles) != -1
 
-class FlappyView():
+class FlappyView(object):
     def __init__(self, model, width, height):
         """ Initialize the view for Flappy Bird.  The input model
             is necessary to find the position of relevant objects
@@ -218,7 +218,7 @@ class FlappyView():
             self.screen.blit(surf, rect)
         pygame.display.update()
 
-class PygameKeyboardController():
+class PygameKeyboardController(object):
     """ Controls flappy bird by mapping spacebar to upward acceleration """
     def __init__(self, model):
         """ initialize the keyboard controller.  The specified model
@@ -236,7 +236,7 @@ class PygameKeyboardController():
             self.space_pressed = True
             self.model.bird.flap()
 
-class FlappyBird():
+class FlappyBird(object):
     """ The main Flappy Bird class """
 
     def __init__(self):
