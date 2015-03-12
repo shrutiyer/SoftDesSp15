@@ -38,7 +38,7 @@ add_note(solo, bass, blues_scale[curr_note], 1.0, beats_per_minute, 1.0)
 
 #added more changes to the licks, kept the increase/decrease in time constant to make sure the music doesn't sound too weird
 licks = [ [(1,0.5), (2,0.5), (-1, 0.5), (-2, 0.5)], [(0,0.5), (-2,0.5), (4, 0.5), (-6, 0.5)], [(-3,0.5), (2,0.5), (-1, 0.5), (0, 0.5)] ] 
-for i in range(18):
+for i in range(7):
     lick = choice(licks) #adds randomness to the choice of licks
     is_swing = True
     for note in lick[:randint(4,4)]:
