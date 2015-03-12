@@ -32,17 +32,18 @@ solo = AudioStream(sampling_rate, 1)
 blues_scale = [25, 28, 30, 31, 32, 35, 37, 40, 42, 43, 44, 47, 49, 52, 54, 55, 56, 59, 61]
 
 k = len(blues_scale)-1
-beats_per_minute = 45				# Let's make a slow blues solo
+beats_per_minute = 45# Let's make a slow blues solo
 curr_note = 12
 add_note(solo, bass, blues_scale[curr_note], 1.0, beats_per_minute, 1.0)
 
-licks = [ [(1,0.5), (2,0.5), (-1, 0.5), (-2, 0.5)], [(0,0.5), (-2,0.5), (4, 0.5), (-6, 0.5)], [(-3,0.5), (2,0.5), (-1, 0.5), (0, 0.5)] ]
+#added more changes to the licks, kept the increase/decrease in time constant to make sure the music doesn't sound too weird
+licks = [ [(1,0.5), (2,0.5), (-1, 0.5), (-2, 0.5)], [(0,0.5), (-2,0.5), (4, 0.5), (-6, 0.5)], [(-3,0.5), (2,0.5), (-1, 0.5), (0, 0.5)] ] 
 for i in range(18):
-    lick = choice(licks)
-    print lick
+    lick = choice(licks) #adds randomness to the choice of licks
     is_swing = True
     for note in lick[:randint(4,4)]:
         curr_note += note[0]
+        #makes alternative note faster and slower
         if is_swing == True:
             multiply_by = 1.4
             is_swing = False
@@ -50,7 +51,8 @@ for i in range(18):
             multiply_by = 0.6
             is_swing = True
         new_note = note[1]*multiply_by
-        print new_note
+
+        #Makes sure that the note doesn't geet stuck on the two ends of the scale.
         if 0<=curr_note & curr_note<= k:
             curr_note_1 = curr_note
             add_note(solo, bass, blues_scale[curr_note_1], new_note, beats_per_minute, 1.0)
@@ -60,8 +62,8 @@ for i in range(18):
         elif curr_note < 0:
             curr_note_1 = k + curr_note
             add_note(solo, bass, blues_scale[curr_note_1], new_note, beats_per_minute, 1.0)     
-        print curr_note_1
 
+#calls the backing track to add to the music
 backing_track = AudioStream(sampling_rate, 1)
 Wavefile.read('backing.wav', backing_track)
 
