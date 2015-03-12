@@ -14,11 +14,11 @@ import urllib2  # urlopen function (better than urllib version)
 import json
 from pprint import pprint
 
-
 # Useful URLs (you need to add the appropriate parameters for your requests)
 GMAPS_BASE_URL = "https://maps.googleapis.com/maps/api/geocode/json?address="
 MBTA_BASE_URL = "http://realtime.mbta.com/developer/api/v2/stopsbylocation"
 MBTA_DEMO_API_KEY = "wX9NwuHnZU2ToO7GmGR9uw"
+#The three important parts of the url
 MTBA_FULL_URL_1 = "http://realtime.mbta.com/developer/api/v2/stopsbylocation?api_key=wX9NwuHnZU2ToO7GmGR9uw&lat=" #Divided the url into three parts
 MTBA_FULL_URL_2 = "&lon="
 MTBA_FULL_URL_3 = "&format=json"
@@ -46,10 +46,10 @@ def get_lat_long(place_name):
     for Google Maps Geocode API URL formatting requirements.
     """
     place_name_list = place_name.split() 
-    blank_space = '%20' #This adds %20 after each word. And no, not a TaylorSwift reference
+    blank_space = '%20' #This adds %20 after each word.
     url_addition = ''
     for items in place_name_list:
-        url_addition = url_addition + items + blank_space
+        url_addition = url_addition + items + blank_space #Adds the place to the url
     total_url = GMAPS_BASE_URL + url_addition
     return get_json(total_url)
     
@@ -78,5 +78,9 @@ def find_stop_near(place_name):
     longi = get_lat_long(place_name)[1]
     return get_nearest_station(lata,longi)
 
-print find_stop_near('Fenway Park')
+#print find_stop_near('Fenway Park')
 #output is (u'Brookline Ave opp Yawkey Way', u'0.0881209298968315')
+
+if __name__ == '__main__':
+    mbta_finder = find_stop_near('Fenway Park')
+    print mbta_finder
