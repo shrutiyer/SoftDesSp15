@@ -68,7 +68,8 @@ class PyBirdMain:
                         self.bird.move(event.key)
                 elif event.type == KEYUP:
                     if event.key == K_SPACE:
-                        self.bird.launch()
+                        if not self.bird.in_flight(): #Makes sure that once in flight, it doesn't accept inputs                     
+                            self.bird.launch()
             self.bird.update()
 
             #Check for collision"""
@@ -84,6 +85,7 @@ class PyBirdMain:
                 level+=1
                 self.bird.lose_life = False
                 self.dart.update()
+                self.bird.reset()
 
             #Displays the fonts like score and lives remaining
             if pygame.font:
@@ -143,7 +145,6 @@ class Bird(pygame.sprite.Sprite):
     def move(self, key):
         """Tells what action should take place according to keyboard inputs.
         For various keystrokes, xMove updates the x_pos and y_pos"""
-        
         global last_time
         if (key == K_RIGHT):
             self.xMove = self.x_dist
@@ -202,7 +203,7 @@ class Bird(pygame.sprite.Sprite):
             self.reset()
         if self.in_flight():
             self.v_y += 0.2
-        pygame.time.delay(10)
+        pygame.time.delay(15)
 
 class Dart(pygame.sprite.Sprite):
     """The red rectangle which is the dart in the game.
@@ -252,6 +253,11 @@ class Dot(pygame.sprite.Sprite):
         self.image, self.rect = load_image('Center.png',-1)
         self.rect.center = (250,400)
 
+class stay_within(pygame.sprite.Sprite):
+    #Try to stay within this rectangle
+    def __init__(self, rect=None):
+        pygame.sprite.Sprite.__init__(self)
+        self.rect = pygame.draw.rect
 if __name__ == "__main__":
     MainWindow = PyBirdMain()
     MainWindow.MainLoop()
