@@ -1,0 +1,7 @@
+Points:
+
+G score is the number of spaces away from the current position. Hence, a block away from it is a score 1. And two blocks away is a score of 2
+
+H score is the distance to the goal. It is the shortest path and called the "Manhattan distance" which is the number  of horizontal and vertical blocks.
+
+F is the addition of both G and H. It is also called A* (Astar) distance. It uses both the shortest distance from the current point and the shortest distance to the goal. 
