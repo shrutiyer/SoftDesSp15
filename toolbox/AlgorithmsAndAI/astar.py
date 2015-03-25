@@ -60,7 +60,7 @@ class GridWorld():
             return False
 
     def _add_swamp(self, mouse_pos):
-        #insert swamp code here.
+        #Loads the swamp tile and changes is_unpassable and terrain_cost
         swamp_coord = (mouse_pos[0]/50, mouse_pos[1]/50)
         if self._is_occupied(swamp_coord):
             if self.actors[swamp_coord].unremovable == False:
@@ -99,7 +99,7 @@ class GridWorld():
                 elif event.type is pygame.MOUSEBUTTONDOWN:
                     if self.add_tile_type == 'lava':
                         self._add_lava(event.pos)
-                    #insert swamp code here
+                    #Adds the swamp tile event
                     if self.add_tile_type == 'swamp':
                         self._add_swamp(event.pos)
                 elif event.type is pygame.KEYDOWN:
@@ -108,7 +108,7 @@ class GridWorld():
                         self.paul.get_path()
                     elif event.key == pygame.K_l:
                         self.add_tile_type = 'lava'
-                    #insert swamp code here
+                    #tells it what to do if swamp tile is being added
                     elif event.key == pygame.K_s:
                         self.add_tile_type = 'swamp'
 
@@ -178,7 +178,7 @@ class Paul(Actor):
 
     def get_open_adj_coords(self, coords):
         """returns list of valid coords that are adjacent to the argument, open, and not in the closed list."""
-        #modify directions and costs as needed
+        #Changes terrain cost as the position changes
         directions = [(1,0),(0,1),(-1,0),(0,-1),(1,1),(1,-1),(-1,1),(-1,-1),(2,0),(0,2),(-2,0),(0,-2)]
         costs = [1,1,1,1,3,3,3,3,8,8,8,8]
         adj_coords = map(lambda d: self.world._add_coords(coords,d), directions)
