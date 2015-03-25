@@ -1,5 +1,7 @@
 """ Analyzes the word frequencies in a book downloaded from
-	Project Gutenberg """
+	Project Gutenberg 
+	author: siyer
+	"""
 
 import string
 from collections import Counter
