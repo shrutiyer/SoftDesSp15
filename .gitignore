@@ -1,3 +1,6 @@
+#Toolbox files
+*.wav
+
 # Compiled source #
 ###################
 *.com
