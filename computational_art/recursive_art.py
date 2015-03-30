@@ -1,4 +1,13 @@
-""" @author: siyer """
+""" @author: siyer 
+
+Grade: 
+Functionality: 5/5
+Documentation: 4.75/5 (-.25 for no added tests)
+Style: 5/5
+CheckIn: yes
+Total: 4.8/5
+
+"""
 
 import random
 from random import choice, randint   #Uses random.choice for the list
@@ -17,7 +26,7 @@ def build_random_function(min_depth, max_depth):
                  (see assignment writeup for details on the representation of
                  these functions)
     """
-    # TODO: implement this
+    # TODO: implement this (You can get rid of these comments that say "To Do:implement this". On a general note, make sure you clean up your comments at the end of your project)
     building_block_list = ["prod","avg","sin_pi","cos_pi","half","square"]
     chosenFunction = random.choice(building_block_list)
     if min_depth == 1:
@@ -27,6 +36,7 @@ def build_random_function(min_depth, max_depth):
             return [chosenFunction, build_random_function(min_depth-1,max_depth-1), build_random_function(min_depth-1,max_depth-1)]
         elif chosenFunction=="sin_pi" or "cos_pi" or  "half" or "square":
             return [chosenFunction, build_random_function(min_depth-1,max_depth-1)]
+    #Nice and concise implementation above. good job! BUT, add some doctests!
 
 def evaluate_random_function(f, x, y):
     """ Evaluate the random function f with inputs x,y
@@ -53,6 +63,7 @@ def evaluate_random_function(f, x, y):
         return evaluate_random_function(f[1],x,y)*evaluate_random_function(f[2],x,y)
     elif f[0] == 'half':
         return evaluate_random_function(f[1],x,y)*evaluate_random_function(f[2],x,y)/2
+    #Again, very nice and concise :) BUT, add some doctests!
 
 def remap_interval(val, input_interval_start, input_interval_end, output_interval_start, output_interval_end):
     """ Given an input value in the interval [input_interval_start,
