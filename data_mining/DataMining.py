@@ -6,6 +6,32 @@ sample1 = Villette written by Charlotte Bronte
 The program treats Villette as an unknown text and checks for stylometry
 """
 
+"""
+Reading your reflection, I'm super happy to see you really developing as a programmer. Reading documentation
+and using libraries is a very big part of programming and I'm really glad to see you realize that.
+
+I'm also super happy to see the way you set up your model. Coding is only a tiny part of the story, most of
+the improtant work is structuring and modeling your project. You seem to be focusing on that, which I'm really
+glad to see.
+
+I'm also glad to hear about your reflection on iterative development. Geez, I dont even need to be your ninja,
+you're having a ton of great insights programmers may only realize way later on. Coding is a lot more than the
+typing on a computer, it's about modeling, iterating, and using libraries. Great!
+
+As per your code, good job splitting functions and using libraries. Only thing missing: testing. 
+
+Also, you have a lot of chunks of repetitive code with vec1, vec2, sum1, sum2, etc. See if you can make that more elegant.
+Repetitiveness isn't so great in code, and you can always find a more elegant way to shrink that down. If you have
+more questions on how, feel free to meet with me in person.
+
++Functionality: 5/5
++Documentation: 4.5/5 (Test code)
++Style: 4.5/5 (Repetitiveness)
++CheckIn: yes
++Total: 4.75/5
+
+"""
+
 import re, math
 from collections import Counter
 from random import randint
